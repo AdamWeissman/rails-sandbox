@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsSandbox</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <footer>
+      <% if user_signed_in? %>
+        <h3>Current user => <%= current_user.email %></h3>
+      <h3><%= button_to 'Sign out', destroy_user_session_path, method: :delete %></h3>
+      <% end %>
+      
+    </footer>
+  </body>
+</html>
